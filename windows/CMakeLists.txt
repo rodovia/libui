@@ -100,3 +100,8 @@ set_target_properties(libui PROPERTIES OUTPUT_NAME ui)
 endif()
 
 target_link_libraries(libui libuicomm ${libui_LIBS})
+
+install(TARGETS libui RUNTIME DESTINATION "bin")
+install(TARGETS libui ARCHIVE DESTINATION "lib")
+install(TARGETS libui PUBLIC_HEADER DESTINATION "include")
+install(TARGETS libui PRIVATE_HEADER DESTINATION "include")
