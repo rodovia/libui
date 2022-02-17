@@ -338,6 +338,12 @@ int uiWindowFullscreen(uiWindow *w)
 	return w->fullscreen;
 }
 
+void uiWindowsSetIcon(uiWindow* window, HICON hres) 
+{
+	SendMessageW(window->hwnd, WM_SETICON, ICON_SMALL, (LPARAM) hres);
+	SendMessageW(window->hwnd, WM_SETICON, ICON_BIG, (LPARAM) hres);
+}
+
 void uiWindowSetFullscreen(uiWindow *w, int fullscreen)
 {
 	RECT r;
