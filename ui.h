@@ -1458,6 +1458,13 @@ _UI_EXTERN void uiTableAppendButtonColumn(uiTable *t,
 // uiNewTable() creates a new uiTable with the specified parameters.
 _UI_EXTERN uiTable *uiNewTable(uiTableParams *params);
 
+#define uiStatusBar(C) ((uiStatusBar*) (C))
+typedef struct uiStatusBar uiStatusBar;
+
+_UI_EXTERN uiStatusBar* uiNewStatusBar(int partCount, const char* partText[]);
+_UI_EXTERN void uiStatusBarAppend(uiStatusBar* b, const char* nPart);
+_UI_EXTERN void uiStatusBarRemove(uiStatusBar* b, unsigned char position);
+
 #ifdef __cplusplus
 }
 #endif

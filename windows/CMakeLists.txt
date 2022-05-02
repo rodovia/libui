@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.19)
 
 option(LIBUI_SHARED "Make libui-modif be built as a shared library." YES)
@@ -51,11 +50,12 @@ set(libui32_SOURCES
 	parent.cpp
 	progressbar.cpp
 	radiobuttons.cpp
-	resources.rc
+	libui.manifest
 	separator.cpp
 	sizing.cpp
 	slider.cpp
 	spinbox.cpp
+	status_bar.cpp
 	stddialogs.cpp
 	tab.cpp
 	table.cpp
@@ -91,6 +91,7 @@ set(libui_LIBS
 
 add_library(libui ${LIBUI_LIBTYPE}
 	${libui32_SOURCES})
+set_target_properties(libui PROPERTIES CXX_STANDARD 20)
 if(LIBUI_SHARED)
 	target_compile_definitions(libui PRIVATE libui_EXPORTS=1)
 	target_compile_definitions(libuicomm PRIVATE libui_EXPORTS=1)
