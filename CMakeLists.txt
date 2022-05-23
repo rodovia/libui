@@ -22,7 +22,7 @@ add_library(libuicomm STATIC ${common_SOURCES})
 if (DEFINED CMAKE_STATIC_LIBRARY_PREFIX)
 set_target_properties(libuicomm PROPERTIES OUTPUT_NAME uicomm)
 endif()
-set_target_properties(libuicomm PROPERTIES INCLUDE_DIRECTORIES ${CMAKE_CURRENT_LIST_DIR}/common)
+target_include_directories(libuicomm PUBLIC "common" PUBLIC ".")
 
 if(WIN32)
 	add_subdirectory(windows)
